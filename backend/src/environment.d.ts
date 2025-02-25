@@ -4,7 +4,7 @@ declare global {
       MONGO_URL: string;
       NODE_ENV: 'development' | 'production';
       PORT?: string;
-      PWD: string;
+      JWT_SEC: string;
     }
   }}
   export {}
