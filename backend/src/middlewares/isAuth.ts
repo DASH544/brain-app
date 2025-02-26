@@ -1,6 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-
+interface JwtPayload
+{
+  id:string
+}
 export async function isAuth(
   req: Request,
   res: Response,
@@ -12,7 +15,7 @@ export async function isAuth(
       res.status(403).json({ message: "Please Login First" });
       return;
     }
-    const decodedData = jwt.verify(token, process.env.JWT_SEC);
+    const decodedData = jwt.verify(token, process.env.JWT_SEC) as JwtPayload;
     if (!decodedData) {
       res.status(403).json({ message: "Unauthorized" });
       return;

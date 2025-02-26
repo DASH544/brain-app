@@ -1,4 +1,4 @@
-import { Request, Response, response } from "express";
+import {  Response } from "express";
 import jwt from "jsonwebtoken"
 export async function genToken(id:string,res:Response)
 {
